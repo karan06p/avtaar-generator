@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <label class="toggle-label">
+            <input type="checkbox" class="checkbox-input">
+            <ion-icon name="sunny" class="sun"></ion-icon>
+            <ion-icon name="moon" class="moon"></ion-icon>
+            <span class="toggle"></span>
+            <span class="animatebg"></span>
+        </label>
+        <h1>Avataar Generator</h1>
+        <div class="centerDiv">
+            <div class="details">
+                <input type="text" id="nameid" placeholder="Enter Name">
+            </div>
+            <div class="imgdiv">
+                <img src='img.jpeg' width="200" height="200" class="imgchange">
+
+            </div>
+            <button id="mybutton">Click me</button>
+        </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#mybutton').click(function () {
+                const name = $('#nameid').val();
+                const diceBearUrl = `https://robohash.org/${name}.png`;
+
+                $('.imgchange').attr('src', diceBearUrl);
+            });
+        });
+        $('#darkModeToggle').change(function () {
+            if ($(this).is(':checked')) {
+                $('body').addClass('dark-mode');
+            } else {
+                $('body').removeClass('dark-mode');
+            }
+        })
+    </script>
+
+</body>
+
+</html>
